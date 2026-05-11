@@ -925,3 +925,74 @@ function showConfirm(p, serverOk, serverMessage) {
     }
   }
 }
+
+// ---------- HERO: live open/closed status ------------------------------
+// Reads SHOP_HOURS + current time; writes a dot + label into any
+// [data-shop-status] element. Refreshes once per minute so a visitor
+// who sits on the homepage right around opening time sees it tick over.
+(function liveShopStatus() {
+  const NL_WEEKDAY = ["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"];
+  const els = $$("[data-shop-status]");
+  if (!els.length) return;
+
+  function fmt(hour) { return String(hour).padStart(2, "0") + ":00"; }
+
+  function render() {
+    const now = new Date();
+    const dow = now.getDay();
+    const hours = SHOP_HOURS[dow];
+    let state = "closed";
+    let html = "";
+
+    if (hours) {
+      const [open, close] = hours;
+      const minutes = now.getHours() * 60 + now.getMinutes();
+      const openMin = open * 60;
+      const closeMin = close * 60;
+      if (minutes >= openMin && minutes < closeMin) {
+        state = "open";
+        html = `<strong>Vandaag open</strong> · ${fmt(open)} – ${fmt(close)}`;
+      } else if (minutes < openMin) {
+        html = `<strong>Gesloten</strong> · vandaag open ${fmt(open)}`;
+      } else {
+        // After close → find next open day
+        for (let i = 1; i <= 7; i++) {
+          const c = (dow + i) % 7;
+          if (SHOP_HOURS[c]) {
+            html = `<strong>Gesloten</strong> · ${i === 1 ? "morgen" : NL_WEEKDAY[c]} weer open`;
+            break;
+          }
+        }
+      }
+    } else {
+      for (let i = 1; i <= 7; i++) {
+        const c = (dow + i) % 7;
+        if (SHOP_HOURS[c]) {
+          const [open] = SHOP_HOURS[c];
+          html = `<strong>Gesloten</strong> · ${i === 1 ? "morgen" : NL_WEEKDAY[c]} ${fmt(open)}`;
+          break;
+        }
+      }
+    }
+
+    els.forEach((el) => {
+      el.setAttribute("data-state", state);
+      el.innerHTML = html;
+    });
+  }
+
+  render();
+  setInterval(render, 60 * 1000);
+})();
+
+// ---------- MOBILE STICKY CTA: show after scrolling past hero -----------
+// CSS toggles display via body.is-scrolled-past-hero — we just set the
+// class on the body when the user has scrolled "into" the page.
+(function stickyCtaScrollState() {
+  const threshold = 360; // px; roughly past the hero corner on phones
+  function update() {
+    document.body.classList.toggle("is-scrolled-past-hero", window.scrollY > threshold);
+  }
+  on(window, "scroll", update, { passive: true });
+  update();
+})();

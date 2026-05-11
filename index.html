@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.pexels.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/style.css?v=6">
 </head>
 <body class="home">
 
@@ -57,7 +57,7 @@
 
   <div class="hero__corner hero__corner--tr">
     <span><strong>Zwanenveld 8403</strong> · Dukenburg</span>
-    <span><strong>Ma – Za</strong> · op afspraak</span>
+    <span data-shop-status><strong>Ma – Za</strong> · 10:00 – 18:00</span>
   </div>
 
   <div class="hero__text">
@@ -270,6 +270,58 @@
   </div>
 </section>
 
+<!-- ============ REVIEWS ============
+     TODO HUMAN — replace these PLACEHOLDER reviews with verbatim
+     quotes from the salon's real Google Maps listing before going
+     live. Pull from Google Places API (recommended) or copy-paste
+     manually. Also remove the .reviews__placeholder-note pill once
+     real reviews are in.
+============================================================ -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <header class="reviews__head reveal">
+      <div class="eyebrow"><span class="num">05</span> Recensies</div>
+      <h2 class="display">Wat klanten <em>zeggen.</em></h2>
+      <span class="reviews__placeholder-note">Voorbeelden — vervang met echte Google reviews vóór livegang</span>
+    </header>
+
+    <div class="reviews__grid">
+      <article class="review-card reveal">
+        <div class="review-card__stars" aria-label="5 sterren">★★★★★</div>
+        <p class="review-card__quote">Echt blij met mijn nieuwe set. De kleur die ik in gedachten had, perfect uitgevoerd. Rustige sfeer, geen gehaast — voelt als een vaste plek.</p>
+        <div class="review-card__attribution">
+          <span class="review-card__avatar" aria-hidden="true">S</span>
+          <span><strong>Sanne K.</strong> · Acryl French</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-card__stars" aria-label="5 sterren">★★★★★</div>
+        <p class="review-card__quote">Eindelijk een nailstudio waar je niet als nummertje wordt afgewerkt. Mooi rustig tempo, ruim de tijd voor advies. Mijn babyboom is na 4 weken nog strak.</p>
+        <div class="review-card__attribution">
+          <span class="review-card__avatar" aria-hidden="true">L</span>
+          <span><strong>Lisa M.</strong> · Acryl Babyboom</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-card__stars" aria-label="5 sterren">★★★★★</div>
+        <p class="review-card__quote">Eerste keer hier en zeker niet de laatste. Vakwerk in een kleine studio, lieve service, transparante prijzen. Ik kom terug voor de spa pedicure.</p>
+        <div class="review-card__attribution">
+          <span class="review-card__avatar" aria-hidden="true">Y</span>
+          <span><strong>Yara H.</strong> · BIAB Naturel</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="reviews__footer reveal">
+      <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&query=The+Global+Beautybar+Nijmegen" target="_blank" rel="noopener">
+        Lees alle reviews op Google
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ VISIT ============ -->
 <section class="section visit" id="visit">
   <div class="container visit__grid">
@@ -450,7 +502,10 @@
   </div>
 </div>
 
-<script src="js/main.js?v=5"></script>
+<!-- Mobile-only sticky "Boek nu" CTA — appears after scrolling past hero -->
+<button class="sticky-cta" data-open-book aria-label="Open boekingsformulier">Boek nu</button>
+
+<script src="js/main.js?v=6"></script>
 <script>
   // Menu category filter + interactive image swap
   (function () {
