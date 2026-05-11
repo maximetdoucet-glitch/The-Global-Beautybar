@@ -2782,3 +2782,96 @@ a:hover { color: var(--gold); }
   .featured-looks__head .display { font-size: clamp(28px, 9vw, 44px); }
 }
 
+/* ===========================================================
+   v4 — SPLIT-LAYOUT PRICE SECTION (image ↔ menu)
+   Desktop: sticky nail-art image on the left, menu rows on the
+   right. Image crossfades on row hover and tab click.
+   Mobile: stacks — image becomes a 4/5 banner above the menu.
+   =========================================================== */
+
+.menu-section__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+
+.menu-image {
+  position: sticky;
+  top: 100px;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-pin);
+  overflow: hidden;
+  background: var(--surface-2);
+  box-shadow: 0 18px 40px -20px rgba(29,29,31,.2);
+  isolation: isolate;
+}
+
+.menu-image__layer {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: opacity .55s var(--ease);
+  will-change: opacity;
+}
+.menu-image__layer.is-out { opacity: 0; }
+
+/* Tiny corner caption — shows the currently-displayed treatment label.
+   Doubles as a wayfinding hint when the image swaps. */
+.menu-image__caption {
+  position: absolute; left: 14px; bottom: 14px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 14px;
+  background: rgba(255,253,247,.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-pill);
+  font-family: var(--sans);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--bone);
+  transition: opacity .25s var(--ease);
+  max-width: calc(100% - 28px);
+}
+.menu-image__caption .price { color: var(--gold-2); }
+
+/* When a row is hovered, lift the cursor cue */
+.menu-list__row { cursor: default; }
+
+/* ----- Mobile / tablet: image becomes a banner above the menu ----- */
+@media (max-width: 880px) {
+  .menu-section__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .menu-image {
+    position: relative;
+    top: 0;
+    aspect-ratio: 4 / 5;
+    margin: 0;
+  }
+  .menu-image__caption { font-size: 10px; padding: 7px 12px; }
+}
+
+@media (max-width: 600px) {
+  .menu-image { aspect-ratio: 5 / 6; border-radius: 12px; }
+  .menu-image__caption { left: 10px; bottom: 10px; font-size: 9px; letter-spacing: 0.16em; }
+  /* The menu-list tabs already scroll horizontally on phone via
+     existing rule — bring them tight to the image banner */
+  .menu-list__tabs { margin-top: 0; margin-bottom: 28px; }
+}
+
+/* ----- Booking-modal: extra mobile polish (carry-over from v3,
+        ensure 16:9 hero-style headings inside step 1 still read
+        on small phones where the long category lists overflow) ----- */
+@media (max-width: 380px) {
+  .book__service-name { font-size: 15px; }
+  .book__service-meta { font-size: 9px; letter-spacing: 0.14em; }
+  .book__cat-label { margin: 14px 0 8px; font-size: 10px; letter-spacing: 0.18em; }
+  .hero__title { font-size: clamp(36px, 14vw, 60px); }
+  .menu-list__row-name { font-size: 17px; }
+  .menu-list__row-meta .price { font-size: 15px; padding: 3px 10px; }
+}
+
