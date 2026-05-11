@@ -2559,3 +2559,226 @@ a:hover { color: var(--gold); }
 .insta-chip:hover { border-color: var(--gold); color: var(--gold); }
 .featured-looks__cta { text-align: center; }
 
+/* ===========================================================
+   v3 — INTERACTIVE TABBED MENU + MOBILE POLISH
+   =========================================================== */
+
+/* ---- Tabbed price-menu — reuses .gallery__filter chip styling
+   with menu-list specific behaviour for show/hide ---- */
+.menu-list__tabs {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto 44px;
+  max-width: 720px;
+}
+
+/* When a tab is active and != all, hide non-matching groups */
+.menu-list[data-active]:not([data-active="all"]) .menu-list__group { display: none; }
+.menu-list[data-active]:not([data-active="all"]) .menu-list__group.is-active { display: block; }
+
+/* On "Alles" mode the category headings are useful; on a specific tab
+   they're redundant (the tab already tells you the category). Hide. */
+.menu-list[data-active]:not([data-active="all"]) .menu-list__cat { display: none; }
+.menu-list[data-active]:not([data-active="all"]) .menu-list__group { border: 0; padding-top: 0; }
+
+/* ---- Row redesign: premium row with animated underline + price pill ---- */
+.menu-list__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 14px 28px;
+  align-items: center;
+  padding: 14px 16px;
+  margin: 0 -16px;
+  border-radius: 12px;
+  border-bottom: 1px dashed var(--line-soft);
+  transition: background .25s var(--ease);
+}
+.menu-list__row:last-child { border-bottom: 0; }
+.menu-list__row:hover { background: var(--surface-2); }
+.menu-list__row::after {
+  content: "";
+  position: absolute; left: 16px; right: 16px; bottom: -1px;
+  height: 1px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform .4s var(--ease);
+}
+.menu-list__row:hover::after { transform: scaleX(1); }
+
+.menu-list__row-name {
+  font-family: var(--serif);
+  font-size: 21px; font-weight: 500;
+  color: var(--bone);
+  line-height: 1.25;
+}
+.menu-list__row-meta {
+  display: inline-flex; gap: 12px; align-items: center;
+  font-variant-numeric: tabular-nums;
+}
+.menu-list__row-meta .duration {
+  font-family: var(--sans);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted);
+}
+.menu-list__row-meta .price {
+  font-family: var(--serif);
+  font-size: 17px; font-weight: 500;
+  color: var(--bone);
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  transition: background .25s var(--ease), border-color .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
+  white-space: nowrap;
+}
+.menu-list__row:hover .price {
+  background: var(--blush);
+  border-color: var(--blush-deep);
+  color: var(--bone);
+  transform: translateY(-1px);
+}
+.menu-list__row-cta {
+  background: transparent;
+  border: 1px solid var(--bone);
+  color: var(--bone);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font-family: var(--sans);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  cursor: pointer;
+  transition: all .25s var(--ease);
+  /* override the older .menu-list__row-cta declaration */
+  border-bottom: 1px solid var(--bone);
+}
+.menu-list__row-cta:hover {
+  background: var(--bone);
+  color: var(--bg);
+  border-color: var(--bone);
+}
+
+/* "Alle X varianten →" footer link rows shouldn't get the hover bg
+   (it's just a navigation cue, not a bookable row) */
+.menu-list__row--link { padding: 18px 16px 6px; }
+.menu-list__row--link:hover { background: transparent; }
+.menu-list__row--link::after { display: none; }
+
+/* ===========================================================
+   MOBILE POLISH — appended overrides (≤880, ≤600, ≤380)
+   =========================================================== */
+
+/* ≤880: tighter menu rows, drawer keeps CTA visible */
+@media (max-width: 880px) {
+  /* Show "Boek nu" inside the burger drawer so it's still reachable */
+  .nav.is-open .nav__cta {
+    display: inline-flex;
+    align-self: center;
+    margin-top: 8px;
+    width: max-content;
+  }
+  /* Smooth drawer entrance */
+  .nav.is-open .nav__links {
+    box-shadow: 0 12px 32px -16px rgba(29,29,31,.18);
+    align-items: center;
+    text-align: center;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+  .nav.is-open .nav__links a { font-size: 14px; letter-spacing: 0.22em; }
+  /* Burger lines animate to an X when open */
+  .nav.is-open .nav__burger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav.is-open .nav__burger span:nth-child(2) { opacity: 0; }
+  .nav.is-open .nav__burger span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+}
+
+/* ≤760: menu tabs become horizontally scrollable on phones */
+@media (max-width: 760px) {
+  .menu-list__tabs,
+  .gallery__filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
+    padding: 4px var(--gutter) 8px;
+    margin-left: calc(var(--gutter) * -1);
+    margin-right: calc(var(--gutter) * -1);
+    max-width: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 12px), transparent);
+  }
+  .menu-list__tabs::-webkit-scrollbar,
+  .gallery__filters::-webkit-scrollbar { display: none; }
+  .menu-list__tabs .gallery__filter,
+  .gallery__filters .gallery__filter { flex: 0 0 auto; }
+
+  /* Hero — hide the top-right badge stack on phone (it crowds the
+     viewport) and give the title-block its own breathing room */
+  .hero__corner--tr { display: none; }
+  .hero__corner--tl { top: 90px; left: 20px; }
+  .hero__text { padding: 0 22px 28px; }
+  .hero__title { line-height: 0.95; }
+  .hero__lede { font-size: 16px; max-width: none; }
+  .hero__caption { display: none; }
+
+  /* Featured looks intro tightens; masonry already 2-col */
+  .featured-looks { padding: 56px 0 72px; }
+  .featured-looks__head { margin-bottom: 36px; }
+  .featured-looks__head .section__sub { font-size: 15px; }
+
+  /* Blush band tighter */
+  .blush-band { padding: 50px 0 60px; }
+  .blush-band__lede { font-size: 16px; padding: 0 8px; }
+}
+
+/* ≤600: menu rows stack name → meta → cta on one column */
+@media (max-width: 600px) {
+  .menu-list__row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 16px 12px;
+    margin: 0 -12px;
+  }
+  .menu-list__row-name { font-size: 18px; }
+  .menu-list__row-meta { justify-content: flex-start; gap: 10px; }
+  .menu-list__row-meta .price { font-size: 16px; padding: 3px 12px; }
+  .menu-list__row-cta { justify-self: flex-start; margin-top: 4px; padding: 7px 14px; font-size: 10px; }
+  .menu-list__row::after { left: 12px; right: 12px; }
+
+  /* Booking modal — already full-screen via Aurora rules; ensure light
+     panel reads cleanly on mobile */
+  .book__panel { border-radius: 0; border: 0; }
+  .book__head { padding: 16px 18px; border-bottom: 1px solid var(--line); }
+  .book__body { padding-bottom: 80px; } /* space above sticky footer */
+  .book__foot {
+    position: sticky; bottom: 0;
+    background: var(--surface);
+    padding: 14px 18px;
+    box-shadow: 0 -6px 16px -8px rgba(29,29,31,.12);
+  }
+
+  /* Service cards inside the modal — keep readable touch targets */
+  .book__service { padding: 14px 16px; min-height: 56px; }
+  .book__service-name { font-size: 16px; }
+  .book__service-meta { font-size: 10px; letter-spacing: 0.18em; }
+
+  /* Stijlen filter chips — slight extra grip */
+  .gallery__filter { padding: 9px 16px; font-size: 11px; }
+
+  /* Subhero on /stijlen and /over-ons */
+  .subhero { padding-top: 110px; padding-bottom: 48px; }
+  .subhero .display { font-size: clamp(34px, 9vw, 56px); }
+  .subhero__lede { font-size: 16px; }
+
+  /* Footer columns stack 1-col on phone */
+  .footer__grid { grid-template-columns: 1fr !important; gap: 24px; }
+  .footer__legal { flex-direction: column; gap: 6px; text-align: center; padding: 16px 0; }
+}
+
+/* ≤420: tighter masonry gap (matches gallery rule already there) */
+@media (max-width: 420px) {
+  .hero__corner--tl { top: 80px; left: 16px; }
+  .featured-looks__head .display { font-size: clamp(28px, 9vw, 44px); }
+}
+
