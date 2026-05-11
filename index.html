@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>The Global Beautybar · Nailstudio Nijmegen</title>
-  <meta name="description" content="Premium nailstudio in Nijmegen. Acryl, BIAB, manicure en pedicure — vakwerk in een verstilde, warme studio op het Zwanenveld. Online boeken.">
+  <meta name="description" content="Premium nailstudio in Nijmegen. Acryl, BIAB, manicure en pedicure — vakwerk in een verstilde studio op het Zwanenveld. Online boeken.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#FAF7F2">
 
@@ -15,8 +15,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=1">
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body class="home">
 
@@ -28,10 +29,10 @@
       <span class="nav__word">GLOBAL BEAUTYBAR</span>
     </a>
     <nav class="nav__links" aria-label="Hoofdnavigatie">
-      <a href="nagels.html">Nagels</a>
+      <a href="#looks">Looks</a>
+      <a href="nagels.html">Behandelingen</a>
       <a href="stijlen.html">Stijlen</a>
-      <a href="over-ons.html">Over ons</a>
-      <a href="#visit">Bezoek</a>
+      <a href="over-ons.html">Studio</a>
     </nav>
     <button class="btn btn--accent nav__cta" data-open-book>Boek nu</button>
     <button class="nav__burger" aria-label="Menu" aria-expanded="false">
@@ -42,12 +43,9 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-
-  <!-- Static atmospheric backdrop — TODO: replace with real nail-art photography -->
   <div class="hero__media hero__media--still" aria-hidden="true">
     <div class="hero__still" data-img="https://images.pexels.com/photos/34835286/pexels-photo-34835286.jpeg?auto=compress&cs=tinysrgb&w=1600"></div>
   </div>
-
   <div class="hero__scrim" aria-hidden="true"></div>
 
   <div class="hero__corner hero__corner--tl">
@@ -59,217 +57,197 @@
 
   <div class="hero__corner hero__corner--tr">
     <span><strong>Zwanenveld 8403</strong> · Dukenburg</span>
-    <span><strong>Ma – Za</strong> · vandaag open</span>
+    <span><strong>Ma – Za</strong> · op afspraak</span>
   </div>
 
   <div class="hero__text">
     <h1 class="hero__title">Global Beautybar</h1>
-    <p class="hero__title-sub">Premium nailstudio in Nijmegen.</p>
+    <p class="hero__title-sub">Nails — gedaan zoals het hoort.</p>
     <p class="hero__lede">
-      Acryl, BIAB, manicure en pedicure — vakwerk in een verstilde, warme studio.
-      Boek je behandeling rechtstreeks online, of stuur ons een appje.
+      Acryl, BIAB, gellak, spa pedicure. Eén paar handen, volle aandacht,
+      directe online afspraak. Welkom op het Zwanenveld.
     </p>
     <div class="hero__cta">
       <button class="btn btn--accent btn--lg" data-open-book>Boek je behandeling</button>
-      <a class="link-arrow" href="#services">Bekijk de behandelingen</a>
+      <a class="link-arrow" href="#looks">Bekijk de looks ↓</a>
     </div>
   </div>
 
   <span class="hero__caption">Zwanenveld 8403 · 6538 TL Nijmegen</span>
-
-  <a class="hero__scroll" href="#services" aria-label="Scroll naar inhoud"><span></span></a>
+  <a class="hero__scroll" href="#looks" aria-label="Scroll naar looks"><span></span></a>
 </section>
 
-<!-- ============ ABOUT ============ -->
-<section class="section about" id="about">
-  <div class="container about__grid">
-    <div class="about__copy reveal">
-      <div class="eyebrow"><span class="num">02</span> De studio</div>
-      <h2 class="display">Eén paar handen, <em>volle aandacht.</em></h2>
-      <p>
-        The Global Beautybar is een nailstudio in Nijmegen-Dukenburg. Geen
-        wachtkamer, geen geroezemoes — alleen jij, je behandeling en het rustige
-        ritme van een vaste hand.
-      </p>
-      <p>
-        We werken op afspraak, in tijdsblokken die ruim genoeg zijn om niet te
-        hoeven haasten. Acryl, BIAB, gellak, manicure of pedicure — kies je
-        behandeling en plan een tijd die je past.
-      </p>
-      <p>
-        Reserveren gaat online via de knop hierboven. Voor vragen of overleg
-        bel of WhatsApp ons gerust.
-      </p>
-    </div>
-    <aside class="about__facts reveal">
-      <ul>
-        <li><span>Wijk</span> <strong>Dukenburg, Nijmegen</strong></li>
-        <li><span>Specialiteit</span> <strong>Acryl · BIAB · Mani · Pedi</strong></li>
-        <li><span>Werkwijze</span> <strong>op afspraak</strong></li>
-        <li><span>Boeken</span> <strong>online · 24/7</strong></li>
-        <li><span>Contact</span> <strong>WhatsApp · telefoon</strong></li>
-      </ul>
-    </aside>
-  </div>
-</section>
-
-<!-- ============ SERVICES ============ -->
-<section class="section services" id="services">
+<!-- ============ FEATURED LOOKS — MASONRY GALLERY ============ -->
+<section class="featured-looks" id="looks">
   <div class="container">
-    <header class="section__head reveal">
-      <div class="eyebrow"><span class="num">03</span> Behandelingen</div>
-      <h2 class="display">Vijf categorieën, <em>één studio.</em></h2>
+    <header class="featured-looks__head reveal">
+      <div class="eyebrow"><span class="num">02</span> Looks</div>
+      <h2 class="display">Onze nagels, <em>tot in detail.</em></h2>
       <p class="section__sub">
-        Bekijk de volledige prijslijst op de <a href="nagels.html">nagelpagina</a>,
-        of kies direct een categorie hieronder.
+        Een doorsnede van wat we boeken — tik op een look om die direct te reserveren.
       </p>
     </header>
 
-    <div class="services__grid">
+    <div class="gallery__masonry" data-gallery>
 
-      <article class="service-card reveal">
-        <div class="service-card__num">— I.</div>
-        <h3>Acryl</h3>
-        <p class="service-card__sub">Nieuwe set · opvullen</p>
-        <p class="service-card__body">
-          Klassiek acryl in naturel roze, met gellak, babyboom of french —
-          een sterke set die wekenlang strak blijft. 8 varianten beschikbaar.
-        </p>
-        <div class="service-card__foot">
-          <span class="service-card__duration">60 min · vanaf €40</span>
-          <button class="service-card__cta" data-open-book data-service="acryl-naturel-nieuw">Reserveer</button>
-        </div>
-      </article>
+      <a class="gallery__pin" data-open-book data-service="acryl-french-nieuw" style="--ratio:3/4">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34871553/pexels-photo-34871553.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">Acryl French · <span class="price">€55</span></span>
+      </a>
 
-      <article class="service-card reveal">
-        <div class="service-card__num">— II.</div>
-        <h3>BIAB</h3>
-        <p class="service-card__sub">Builder gel · zacht en duurzaam</p>
-        <p class="service-card__body">
-          BIAB (Builder In A Bottle) versterkt je natuurlijke nagels onder een
-          gellak-laag. Lichter dan acryl, een eigen finish. 6 varianten.
-        </p>
-        <div class="service-card__foot">
-          <span class="service-card__duration">60 min · vanaf €45</span>
-          <button class="service-card__cta" data-open-book data-service="biab-naturel-nieuw">Reserveer</button>
-        </div>
-      </article>
+      <a class="gallery__pin" data-open-book data-service="acryl-babyboom-nieuw" style="--ratio:1/1">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34835303/pexels-photo-34835303.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">Acryl Babyboom · <span class="price">€55</span></span>
+      </a>
 
-      <article class="service-card reveal">
-        <div class="service-card__num">— III.</div>
-        <h3>Manicure</h3>
-        <p class="service-card__sub">Klassiek · gellak · french</p>
-        <p class="service-card__body">
-          Knippen en vijlen, klassieke manicure, gellak met of zonder french —
-          voor verzorgde handen zonder extensies.
-        </p>
-        <div class="service-card__foot">
-          <span class="service-card__duration">15 – 45 min · vanaf €10</span>
-          <button class="service-card__cta" data-open-book data-service="mani-klassiek">Reserveer</button>
-        </div>
-      </article>
+      <a class="gallery__pin" data-open-book data-service="biab-french-nieuw" style="--ratio:4/5">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34871560/pexels-photo-34871560.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">BIAB French · <span class="price">€60</span></span>
+      </a>
 
-      <article class="service-card reveal">
-        <div class="service-card__num">— IV.</div>
-        <h3>Pedicure</h3>
-        <p class="service-card__sub">Spa · gellak · french</p>
-        <p class="service-card__body">
-          Spa pedicure met of zonder gellak en french. Een uitgebreid moment
-          voor je voeten, in een aparte stoel met warm voetenbad.
-        </p>
-        <div class="service-card__foot">
-          <span class="service-card__duration">30 – 60 min · vanaf €30</span>
-          <button class="service-card__cta" data-open-book data-service="pedi-spa">Reserveer</button>
-        </div>
-      </article>
+      <a class="gallery__pin" data-open-book data-service="pedi-spa-french" style="--ratio:3/4">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34885847/pexels-photo-34885847.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">Spa Pedicure French · <span class="price">€55</span></span>
+      </a>
 
+      <a class="gallery__pin" data-open-book data-service="acryl-naturel-nieuw" style="--ratio:1/1">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34871570/pexels-photo-34871570.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">Acryl Naturel · <span class="price">€45</span></span>
+      </a>
+
+      <a class="gallery__pin" data-open-book data-service="mani-gellak" style="--ratio:3/4">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34871614/pexels-photo-34871614.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">Gellak Manicure · <span class="price">€30</span></span>
+      </a>
+
+      <a class="gallery__pin" data-open-book data-service="mani-klassiek" style="--ratio:4/5">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34671620/pexels-photo-34671620.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">Manicure · <span class="price">€15</span></span>
+      </a>
+
+      <a class="gallery__pin" data-open-book data-service="acryl-gellak-nieuw" style="--ratio:1/1">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/3997386/pexels-photo-3997386.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">Acryl met Gellak · <span class="price">€50</span></span>
+      </a>
+
+      <a class="gallery__pin" data-open-book data-service="biab-naturel-nieuw" style="--ratio:3/4">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/17280274/pexels-photo-17280274.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">BIAB Naturel · <span class="price">€50</span></span>
+      </a>
+
+      <a class="gallery__pin" data-open-book data-service="pedi-gellak" style="--ratio:1/1">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/36207029/pexels-photo-36207029.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">Pedicure Gellak · <span class="price">€30</span></span>
+      </a>
+
+      <a class="gallery__pin" data-open-book data-service="mani-gellak-french" style="--ratio:4/5">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/998405/pexels-photo-998405.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">Gellak French · <span class="price">€35</span></span>
+      </a>
+
+      <a class="gallery__pin" data-open-book data-service="acryl-babyboom-opvullen" style="--ratio:3/4">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/3997385/pexels-photo-3997385.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">Babyboom Opvullen · <span class="price">€50</span></span>
+      </a>
+
+      <a class="gallery__pin" data-open-book data-service="biab-gellak-nieuw" style="--ratio:1/1">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/3997378/pexels-photo-3997378.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">BIAB Gellak · <span class="price">€55</span></span>
+      </a>
+
+      <a class="gallery__pin" data-open-book data-service="pedi-spa" style="--ratio:3/4">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34885842/pexels-photo-34885842.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">Spa Pedicure · <span class="price">€40</span></span>
+      </a>
+
+      <a class="gallery__pin" data-open-book data-service="extra-nailart" style="--ratio:4/5">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/17471377/pexels-photo-17471377.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">Nailart · <span class="price">vanaf €2</span></span>
+      </a>
+
+      <a class="gallery__pin" data-open-book data-service="mani-met-gellak" style="--ratio:1/1">
+        <span class="gallery__pin-img" data-img="https://images.pexels.com/photos/34971940/pexels-photo-34971940.jpeg?auto=compress&cs=tinysrgb&w=900"></span>
+        <span class="pin-caption">Manicure + Gellak · <span class="price">€35</span></span>
+      </a>
+
+    </div>
+
+    <div class="featured-looks__cta">
+      <a class="insta-chip" href="https://www.instagram.com/theglobalbeautybar" target="_blank" rel="noopener">
+        Meer werk live op Instagram — <strong>@theglobalbeautybar →</strong>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ============ STIJLEN (editorial detail rows) ============ -->
-<section class="section suites" id="suites">
+<!-- ============ BLUSH BAND — short brand statement ============ -->
+<section class="blush-band">
+  <div class="container">
+    <div class="eyebrow"><span class="num">03</span> De studio</div>
+    <h2 class="display">Eén paar handen, <em>volle aandacht.</em></h2>
+    <p class="blush-band__lede">
+      Geen wachtkamer, geen lopende band — alleen jij, je behandeling
+      en het rustige ritme van een vaste hand.
+    </p>
+    <button class="btn btn--accent btn--lg" data-open-book>Plan je afspraak</button>
+  </div>
+</section>
+
+<!-- ============ SERVICE MENU (lean list, all 31 services) ============ -->
+<section class="section" id="menu">
   <div class="container">
     <header class="section__head reveal">
-      <div class="eyebrow"><span class="num">04</span> Stijlen</div>
-      <h2 class="display">Vier signatuurstijlen, <em>op jouw nagels.</em></h2>
-      <p class="section__sub">De meest geboekte looks op de salonkaart.</p>
+      <div class="eyebrow"><span class="num">04</span> Prijslijst</div>
+      <h2 class="display">Behandelingen <em>en tarieven.</em></h2>
+      <p class="section__sub">Geverifieerd — geen verrassingen achteraf.</p>
     </header>
 
-    <div class="suites__list">
+    <div class="menu-list reveal">
 
-      <article class="suite-row reveal">
-        <div class="suite-row__media" data-img="https://images.pexels.com/photos/34871553/pexels-photo-34871553.jpeg?auto=compress&cs=tinysrgb&w=1600" aria-label="Acryl French"></div>
-        <div class="suite-row__copy">
-          <div class="suite-row__num">— Stijl I.</div>
-          <h3>Acryl French</h3>
-          <p>
-            De tijdloze klassieker — een crèmewitte tip op een transparant of
-            roze fond. <em>Strak, helder, geschikt voor elke gelegenheid.</em>
-          </p>
-          <button class="btn btn--accent btn--sm" data-open-book data-service="acryl-french-nieuw">Reserveer Acryl French →</button>
-        </div>
-      </article>
+      <div class="menu-list__group">
+        <h3 class="menu-list__cat">Acryl</h3>
+        <div class="menu-list__row"><span class="menu-list__row-name">Naturel roze · nieuwe set</span><span class="menu-list__row-meta">60 min · €45</span><button class="menu-list__row-cta" data-open-book data-service="acryl-naturel-nieuw">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">Naturel roze · opvullen</span><span class="menu-list__row-meta">60 min · €40</span><button class="menu-list__row-cta" data-open-book data-service="acryl-naturel-opvullen">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">Met gellak · nieuwe set</span><span class="menu-list__row-meta">60 min · €50</span><button class="menu-list__row-cta" data-open-book data-service="acryl-gellak-nieuw">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">Babyboom · nieuwe set</span><span class="menu-list__row-meta">60 min · €55</span><button class="menu-list__row-cta" data-open-book data-service="acryl-babyboom-nieuw">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">French · nieuwe set</span><span class="menu-list__row-meta">60 min · €55</span><button class="menu-list__row-cta" data-open-book data-service="acryl-french-nieuw">Boek</button></div>
+        <div class="menu-list__row"><a href="nagels.html#acryl" class="link-arrow">Alle 8 acryl-varianten →</a></div>
+      </div>
 
-      <article class="suite-row reveal">
-        <div class="suite-row__media" data-img="https://images.pexels.com/photos/34835303/pexels-photo-34835303.jpeg?auto=compress&cs=tinysrgb&w=1600" aria-label="Acryl Babyboom"></div>
-        <div class="suite-row__copy">
-          <div class="suite-row__num">— Stijl II.</div>
-          <h3>Acryl Babyboom</h3>
-          <p>
-            Een zachte gradient van roze naar wit — <em>ombre-stijl, subtiel
-            verloop, vrouwelijk en nooit te druk.</em>
-          </p>
-          <button class="btn btn--accent btn--sm" data-open-book data-service="acryl-babyboom-nieuw">Reserveer Acryl Babyboom →</button>
-        </div>
-      </article>
+      <div class="menu-list__group">
+        <h3 class="menu-list__cat">BIAB</h3>
+        <div class="menu-list__row"><span class="menu-list__row-name">Naturel roze · nieuwe set</span><span class="menu-list__row-meta">60 min · €50</span><button class="menu-list__row-cta" data-open-book data-service="biab-naturel-nieuw">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">Met gellak · nieuwe set</span><span class="menu-list__row-meta">60 min · €55</span><button class="menu-list__row-cta" data-open-book data-service="biab-gellak-nieuw">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">French · nieuwe set</span><span class="menu-list__row-meta">60 min · €60</span><button class="menu-list__row-cta" data-open-book data-service="biab-french-nieuw">Boek</button></div>
+        <div class="menu-list__row"><a href="nagels.html#biab" class="link-arrow">Alle 6 BIAB-varianten →</a></div>
+      </div>
 
-      <article class="suite-row reveal">
-        <div class="suite-row__media" data-img="https://images.pexels.com/photos/34871560/pexels-photo-34871560.jpeg?auto=compress&cs=tinysrgb&w=1600" aria-label="BIAB French"></div>
-        <div class="suite-row__copy">
-          <div class="suite-row__num">— Stijl III.</div>
-          <h3>BIAB French</h3>
-          <p>
-            Builder-gel in een french-finish — <em>lichter en flexibeler dan
-            acryl, voor wie houdt van een natuurlijkere look.</em>
-          </p>
-          <button class="btn btn--accent btn--sm" data-open-book data-service="biab-french-nieuw">Reserveer BIAB French →</button>
-        </div>
-      </article>
+      <div class="menu-list__group">
+        <h3 class="menu-list__cat">Manicure</h3>
+        <div class="menu-list__row"><span class="menu-list__row-name">Knippen en vijlen</span><span class="menu-list__row-meta">15 min · €10</span><button class="menu-list__row-cta" data-open-book data-service="mani-knippen">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">Manicure klassiek</span><span class="menu-list__row-meta">30 min · €15</span><button class="menu-list__row-cta" data-open-book data-service="mani-klassiek">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">Gellak</span><span class="menu-list__row-meta">30 min · €30</span><button class="menu-list__row-cta" data-open-book data-service="mani-gellak">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">Manicure + gellak</span><span class="menu-list__row-meta">45 min · €35</span><button class="menu-list__row-cta" data-open-book data-service="mani-met-gellak">Boek</button></div>
+        <div class="menu-list__row"><a href="nagels.html#manicure" class="link-arrow">Alle 6 manicure-opties →</a></div>
+      </div>
 
-      <article class="suite-row reveal">
-        <div class="suite-row__media" data-img="https://images.pexels.com/photos/34885847/pexels-photo-34885847.jpeg?auto=compress&cs=tinysrgb&w=1600" aria-label="Spa Pedicure French"></div>
-        <div class="suite-row__copy">
-          <div class="suite-row__num">— Stijl IV.</div>
-          <h3>Spa Pedicure French</h3>
-          <p>
-            Een uitgebreide spa pedicure afgesloten met een gellak-french.
-            <em>Voor je voeten — een uur waarin alleen jij meetelt.</em>
-          </p>
-          <button class="btn btn--accent btn--sm" data-open-book data-service="pedi-spa-french">Reserveer Spa Pedicure →</button>
-        </div>
-      </article>
+      <div class="menu-list__group">
+        <h3 class="menu-list__cat">Pedicure</h3>
+        <div class="menu-list__row"><span class="menu-list__row-name">Spa pedicure</span><span class="menu-list__row-meta">30 min · €40</span><button class="menu-list__row-cta" data-open-book data-service="pedi-spa">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">Spa pedicure met gellak</span><span class="menu-list__row-meta">60 min · €50</span><button class="menu-list__row-cta" data-open-book data-service="pedi-spa-gellak">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">Spa pedicure met french</span><span class="menu-list__row-meta">60 min · €55</span><button class="menu-list__row-cta" data-open-book data-service="pedi-spa-french">Boek</button></div>
+        <div class="menu-list__row"><a href="nagels.html#pedicure" class="link-arrow">Alle 7 pedicure-opties →</a></div>
+      </div>
+
+      <div class="menu-list__group">
+        <h3 class="menu-list__cat">Extras</h3>
+        <div class="menu-list__row"><span class="menu-list__row-name">Nailart (per nagel, vanaf)</span><span class="menu-list__row-meta">15 min · €2</span><button class="menu-list__row-cta" data-open-book data-service="extra-nailart">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">Reparatie (vanaf)</span><span class="menu-list__row-meta">15 min · €3</span><button class="menu-list__row-cta" data-open-book data-service="extra-reparatie">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">Verwijderen gellak</span><span class="menu-list__row-meta">15 min · €10</span><button class="menu-list__row-cta" data-open-book data-service="extra-verw-gellak">Boek</button></div>
+        <div class="menu-list__row"><span class="menu-list__row-name">Verwijderen BIAB / acryl</span><span class="menu-list__row-meta">30 min · €15</span><button class="menu-list__row-cta" data-open-book data-service="extra-verw-biab">Boek</button></div>
+      </div>
 
     </div>
-  </div>
-</section>
-
-<!-- ============ SFEER ============ -->
-<section class="section sfeer" aria-label="Sfeerbeelden">
-  <header class="section__head container reveal">
-    <div class="eyebrow"><span class="num">05</span> Sfeerbeelden</div>
-    <h2 class="display">Een moment <em>bij Global Beautybar.</em></h2>
-    <p class="section__sub">
-      Onze actuele werken: <a href="https://www.instagram.com/theglobalbeautybar" target="_blank" rel="noopener">@theglobalbeautybar</a> op Instagram.
-    </p>
-  </header>
-  <div class="sfeer__scroller">
-    <figure class="sfeer__tile" data-img="https://images.pexels.com/photos/34871570/pexels-photo-34871570.jpeg?auto=compress&cs=tinysrgb&w=1600"></figure>
-    <figure class="sfeer__tile" data-img="https://images.pexels.com/photos/17471377/pexels-photo-17471377.jpeg?auto=compress&cs=tinysrgb&w=1600"></figure>
-    <figure class="sfeer__tile" data-img="https://images.pexels.com/photos/35491156/pexels-photo-35491156.jpeg?auto=compress&cs=tinysrgb&w=1600"></figure>
-    <figure class="sfeer__tile" data-img="https://images.pexels.com/photos/34971940/pexels-photo-34971940.jpeg?auto=compress&cs=tinysrgb&w=1600"></figure>
-    <figure class="sfeer__tile" data-img="https://images.pexels.com/photos/34885842/pexels-photo-34885842.jpeg?auto=compress&cs=tinysrgb&w=1600"></figure>
-    <figure class="sfeer__tile" data-img="https://images.pexels.com/photos/998405/pexels-photo-998405.jpeg?auto=compress&cs=tinysrgb&w=1600"></figure>
   </div>
 </section>
 
@@ -278,24 +256,23 @@
   <div class="container visit__grid">
 
     <div class="visit__col reveal">
-      <div class="eyebrow"><span class="num">06</span> Bezoek</div>
+      <div class="eyebrow"><span class="num">05</span> Bezoek</div>
       <h2 class="display">Zwanenveld 8403.</h2>
       <p class="visit__addr">
         Zwanenveld 8403<br>
         6538 TL Nijmegen<br>
-        Nederland
+        Dukenburg
       </p>
       <ul class="visit__contact">
         <li><span>Telefoon</span><a href="tel:+31634565653">06 34 56 56 53</a></li>
         <li><span>WhatsApp</span><a href="https://wa.me/31634565653" target="_blank" rel="noopener">06 34 56 56 53</a></li>
         <li><span>E-mail</span><a href="mailto:bichhao_pham@hotmail.com">bichhao_pham@hotmail.com</a></li>
         <li><span>Instagram</span><a href="https://www.instagram.com/theglobalbeautybar" target="_blank" rel="noopener">@theglobalbeautybar</a></li>
-        <li><span>Wijk</span><span class="muted">Dukenburg · Winkelcentrum Zwanenveld</span></li>
       </ul>
     </div>
 
     <div class="visit__col reveal">
-      <div class="eyebrow"><span class="num">07</span> Openingstijden</div>
+      <div class="eyebrow"><span class="num">06</span> Open</div>
       <h2 class="display"><em>Ma – Za.</em></h2>
       <table class="hours">
         <tbody>
@@ -325,14 +302,6 @@
   </div>
 </section>
 
-<!-- ============ CTA STRIP ============ -->
-<section class="cta-strip">
-  <div class="container">
-    <h2 class="display"><em>Boek je behandeling.</em><br>Direct online — bevestiging meteen in je mail.</h2>
-    <button class="btn btn--accent btn--lg" data-open-book>Boek nu</button>
-  </div>
-</section>
-
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="container footer__grid">
@@ -341,27 +310,22 @@
       <span class="nav__word">GLOBAL BEAUTYBAR</span>
       <p class="footer__tag">Nailstudio · Nijmegen · Dukenburg</p>
     </div>
-
     <div class="footer__col">
       <h4>Adres</h4>
       <p>Zwanenveld 8403<br>6538 TL Nijmegen</p>
       <p><a href="tel:+31634565653">06 34 56 56 53</a></p>
       <p><a href="mailto:bichhao_pham@hotmail.com">bichhao_pham@hotmail.com</a></p>
     </div>
-
     <div class="footer__col">
       <h4>Open</h4>
-      <p>Maandag · 12:00 – 18:00<br>
-         Di – Za · 10:00 – 18:00<br>
-         Zondag · gesloten</p>
+      <p>Maandag · 12:00 – 18:00<br>Di – Za · 10:00 – 18:00<br>Zondag · gesloten</p>
     </div>
-
     <div class="footer__col">
       <h4>Pagina's</h4>
-      <p><a href="nagels.html">Nagels</a></p>
+      <p><a href="#looks">Looks</a></p>
+      <p><a href="nagels.html">Behandelingen</a></p>
       <p><a href="stijlen.html">Stijlen</a></p>
-      <p><a href="over-ons.html">Over ons</a></p>
-      <p><a href="#visit">Bezoek</a></p>
+      <p><a href="over-ons.html">Studio</a></p>
     </div>
   </div>
   <div class="footer__legal container">
@@ -378,20 +342,16 @@
       <h2 id="book-title">Boek je behandeling</h2>
       <button class="book__close" data-close-book aria-label="Sluiten">×</button>
     </header>
-
     <ol class="book__steps" aria-hidden="true">
       <li data-step="1" class="is-active">Behandeling</li>
       <li data-step="2">Datum</li>
       <li data-step="3">Tijd</li>
       <li data-step="4">Gegevens</li>
     </ol>
-
     <div class="book__body">
-
       <section class="book__step is-active" data-step="1">
         <div class="book__group">
           <div class="book__group-label">Behandeling <span class="book__group-meta">verplicht</span></div>
-
           <div class="book__cat-label">Acryl</div>
           <div class="book__services">
             <button class="book__service" data-service="acryl-naturel-nieuw"><span class="book__service-name">Naturel roze · nieuwe set</span><span class="book__service-meta">60 min · €45</span></button>
@@ -403,7 +363,6 @@
             <button class="book__service" data-service="acryl-french-nieuw"><span class="book__service-name">French · nieuwe set</span><span class="book__service-meta">60 min · €55</span></button>
             <button class="book__service" data-service="acryl-french-opvullen"><span class="book__service-name">French · opvullen</span><span class="book__service-meta">60 min · €50</span></button>
           </div>
-
           <div class="book__cat-label">BIAB</div>
           <div class="book__services">
             <button class="book__service" data-service="biab-naturel-nieuw"><span class="book__service-name">Naturel roze · nieuwe set</span><span class="book__service-meta">60 min · €50</span></button>
@@ -413,7 +372,6 @@
             <button class="book__service" data-service="biab-french-nieuw"><span class="book__service-name">French · nieuwe set</span><span class="book__service-meta">60 min · €60</span></button>
             <button class="book__service" data-service="biab-french-opvullen"><span class="book__service-name">French · opvullen</span><span class="book__service-meta">60 min · €55</span></button>
           </div>
-
           <div class="book__cat-label">Manicure</div>
           <div class="book__services">
             <button class="book__service" data-service="mani-knippen"><span class="book__service-name">Knippen en vijlen</span><span class="book__service-meta">15 min · €10</span></button>
@@ -423,7 +381,6 @@
             <button class="book__service" data-service="mani-gellak-met-verw"><span class="book__service-name">Gellak met verwijderen</span><span class="book__service-meta">45 min · €32,50</span></button>
             <button class="book__service" data-service="mani-met-gellak"><span class="book__service-name">Manicure met gellak</span><span class="book__service-meta">45 min · €35</span></button>
           </div>
-
           <div class="book__cat-label">Pedicure</div>
           <div class="book__services">
             <button class="book__service" data-service="pedi-knippen"><span class="book__service-name">Knippen en vijlen</span><span class="book__service-meta">15 min · €10</span></button>
@@ -434,7 +391,6 @@
             <button class="book__service" data-service="pedi-gellak-french"><span class="book__service-name">Gellak french</span><span class="book__service-meta">30 min · €35</span></button>
             <button class="book__service" data-service="pedi-gellak-met-verw"><span class="book__service-name">Gellak verwijderen en gellak</span><span class="book__service-meta">30 min · €32,50</span></button>
           </div>
-
           <div class="book__cat-label">Extras</div>
           <div class="book__services">
             <button class="book__service" data-service="extra-reparatie"><span class="book__service-name">Reparatie (vanaf)</span><span class="book__service-meta">15 min · €3</span></button>
@@ -443,61 +399,30 @@
             <button class="book__service" data-service="extra-verw-biab"><span class="book__service-name">Verwijderen BIAB / Acryl</span><span class="book__service-meta">30 min · €15</span></button>
           </div>
         </div>
-
-        <p class="book__hint">Alle prijzen verifieerd via de Salonized prijslijst.</p>
       </section>
-
-      <section class="book__step" data-step="2">
-        <div class="book__cal" id="book-calendar"></div>
-      </section>
-
-      <section class="book__step" data-step="3">
-        <div class="book__slots" id="book-slots"></div>
-      </section>
-
+      <section class="book__step" data-step="2"><div class="book__cal" id="book-calendar"></div></section>
+      <section class="book__step" data-step="3"><div class="book__slots" id="book-slots"></div></section>
       <section class="book__step" data-step="4">
         <form class="book__form" id="book-form" novalidate>
-          <label>
-            <span>Naam *</span>
-            <input type="text" name="name" required autocomplete="name">
-          </label>
-          <label>
-            <span>Telefoonnummer *</span>
-            <input type="tel" name="phone" required autocomplete="tel" placeholder="+31 6 …">
-          </label>
-          <label>
-            <span>E-mail *</span>
-            <input type="email" name="email" required autocomplete="email">
-          </label>
-          <label>
-            <span>Wensen (optioneel)</span>
-            <textarea name="notes" rows="3" placeholder="Kleurvoorkeur, allergieën, eerste keer…"></textarea>
-          </label>
-          <label class="book__consent">
-            <input type="checkbox" name="consent" required>
-            <span>Ik ontvang de bevestiging per e-mail.</span>
-          </label>
+          <label><span>Naam *</span><input type="text" name="name" required autocomplete="name"></label>
+          <label><span>Telefoonnummer *</span><input type="tel" name="phone" required autocomplete="tel" placeholder="+31 6 …"></label>
+          <label><span>E-mail *</span><input type="email" name="email" required autocomplete="email"></label>
+          <label><span>Wensen (optioneel)</span><textarea name="notes" rows="3" placeholder="Kleurvoorkeur, allergieën, eerste keer…"></textarea></label>
+          <label class="book__consent"><input type="checkbox" name="consent" required><span>Ik ontvang de bevestiging per e-mail.</span></label>
         </form>
       </section>
-
       <section class="book__step book__confirm" data-step="confirm">
         <div class="book__confirm-icon" aria-hidden="true">✓</div>
         <h3>Reservering bevestigd</h3>
         <p class="book__summary" id="book-summary"></p>
         <p>Je ontvangt een bevestiging per e-mail. Tot snel!</p>
         <div class="book__confirm-cta">
-          <a class="btn btn--accent btn--lg" id="book-wa" target="_blank" rel="noopener">
-            Stuur ons een appje
-          </a>
+          <a class="btn btn--accent btn--lg" id="book-wa" target="_blank" rel="noopener">Stuur ons een appje</a>
           <button class="btn btn--ghost" data-close-book>Sluiten</button>
         </div>
-        <p class="book__hint">
-          Vragen? Bel <a href="tel:+31634565653">06 34 56 56 53</a>.
-        </p>
+        <p class="book__hint">Vragen? Bel <a href="tel:+31634565653">06 34 56 56 53</a>.</p>
       </section>
-
     </div>
-
     <footer class="book__foot">
       <button class="btn btn--ghost" id="book-back" hidden>Terug</button>
       <button class="btn btn--accent" id="book-next">Volgende</button>
@@ -506,20 +431,6 @@
   </div>
 </div>
 
-<!-- ============ AMBIENT AUDIO (homepage only) ============ -->
-<button class="ambient" id="ambient-toggle" type="button"
-        aria-label="Achtergrondmuziek aan of uit"
-        aria-pressed="false">
-  <span class="ambient__icon" aria-hidden="true">
-    <span class="ambient__bar"></span>
-    <span class="ambient__bar"></span>
-    <span class="ambient__bar"></span>
-    <span class="ambient__bar"></span>
-  </span>
-  <span class="ambient__label">Sfeer</span>
-</button>
-<audio id="ambient-audio" loop preload="none" src="audio/ambient.mp3"></audio>
-
-<script src="js/main.js?v=1"></script>
+<script src="js/main.js?v=2"></script>
 </body>
 </html>

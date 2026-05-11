@@ -2359,3 +2359,203 @@ a:hover { color: var(--gold); }
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
 .reveal.is-in { opacity: 1; transform: none; }
 
+/* ===========================================================
+   v2 — NAIL-SALON-NATIVE PATTERNS
+   Inspired by Paintbox NYC (modern luxury editorial nail
+   studio) + Pinterest masonry pin grid. Adds:
+   - Soft blush accent for warmer nail-brand feel
+   - 16px-radius pin cards with hover caption overlays
+   - CSS-column masonry that flows responsively
+   - Lean menu-list pattern for the service-pricing display
+   =========================================================== */
+
+:root {
+  --blush:        #F4DDD9;   /* soft blush pink — tertiary accent */
+  --blush-deep:   #D8B5AC;   /* deeper blush for hover/contrast */
+  --radius-pin:   16px;
+  --radius-card:  14px;
+  --radius-pill:  999px;
+  --gutter-pin:   12px;
+}
+
+/* ---- Section: Featured Looks (homepage Pinterest grid) ---- */
+.featured-looks { padding: clamp(70px, 9vw, 130px) 0; background: var(--bg); position: relative; z-index: 2; }
+.featured-looks .container { padding: 0 var(--gutter); }
+.featured-looks__head { max-width: 720px; margin: 0 auto 56px; text-align: center; }
+.featured-looks__head .eyebrow { margin: 0 auto 14px; justify-content: center; }
+.featured-looks__head .display { margin: 6px 0 14px; }
+
+/* ---- Masonry grid (CSS columns — no JS needed) ---- */
+.gallery__masonry {
+  column-count: 4;
+  column-gap: var(--gutter-pin);
+}
+@media (max-width: 1100px) { .gallery__masonry { column-count: 3; } }
+@media (max-width: 760px)  { .gallery__masonry { column-count: 2; column-gap: 8px; } }
+@media (max-width: 420px)  { .gallery__masonry { column-count: 2; column-gap: 6px; } }
+
+.gallery__pin {
+  position: relative;
+  display: block;
+  margin: 0 0 var(--gutter-pin);
+  border-radius: var(--radius-pin);
+  overflow: hidden;
+  background: var(--surface-2);
+  break-inside: avoid;
+  cursor: pointer;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+  isolation: isolate;
+}
+@media (max-width: 760px) { .gallery__pin { margin-bottom: 8px; } }
+.gallery__pin img,
+.gallery__pin .gallery__pin-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--surface-2);
+  transition: transform .6s var(--ease);
+}
+.gallery__pin .gallery__pin-img {
+  /* For background-image variant — fluid aspect via aspect-ratio */
+  aspect-ratio: var(--ratio, 3/4);
+  background-size: cover;
+  background-position: center;
+}
+.gallery__pin:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -16px rgba(29,29,31,.22); }
+.gallery__pin:hover img,
+.gallery__pin:hover .gallery__pin-img { transform: scale(1.04); }
+
+/* Hover caption overlay (Paintbox-style) */
+.gallery__pin .pin-caption {
+  position: absolute; left: 12px; bottom: 12px; right: 12px;
+  display: inline-flex; flex-wrap: wrap; gap: 6px 10px; align-items: center;
+  padding: 8px 14px;
+  background: rgba(255,253,247,.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-pill);
+  font-family: var(--sans);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--bone);
+  opacity: 0; transform: translateY(6px);
+  transition: opacity .25s var(--ease), transform .25s var(--ease);
+  pointer-events: none;
+  width: max-content; max-width: calc(100% - 24px);
+}
+.gallery__pin .pin-caption .price { color: var(--gold-2); font-weight: 700; }
+.gallery__pin:hover .pin-caption,
+.gallery__pin:focus .pin-caption { opacity: 1; transform: none; }
+@media (hover: none) { .gallery__pin .pin-caption { opacity: 1; transform: none; } }
+
+/* ---- Category chip-tabs above the masonry on /stijlen ---- */
+.gallery__filters {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  justify-content: center;
+  margin: 0 auto 40px;
+  max-width: 720px;
+}
+.gallery__filter {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--bone);
+  border-radius: var(--radius-pill);
+  padding: 10px 18px;
+  font-family: var(--sans);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  cursor: pointer;
+  transition: all .2s var(--ease);
+}
+.gallery__filter:hover { border-color: var(--gold); color: var(--gold); }
+.gallery__filter.is-active { background: var(--bone); color: var(--bg); border-color: var(--bone); }
+
+.gallery__pin.is-hidden { display: none; }
+
+/* ---- Lean service-menu (vs the original "editorial card" pattern) ---- */
+.menu-list { max-width: 880px; margin: 0 auto; }
+.menu-list__group { padding: 28px 0; border-bottom: 1px solid var(--line); }
+.menu-list__group:last-child { border-bottom: 0; }
+.menu-list__cat {
+  font-family: var(--sans);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 18px;
+}
+.menu-list__row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 14px 32px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--line-soft);
+}
+.menu-list__row:last-child { border-bottom: 0; }
+.menu-list__row-name {
+  font-family: var(--serif);
+  font-size: 19px; font-weight: 500;
+  color: var(--bone);
+}
+.menu-list__row-meta {
+  font-family: var(--sans);
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.menu-list__row-cta {
+  background: transparent;
+  border: 0;
+  font-family: var(--sans);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--bone);
+  cursor: pointer;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+  transition: all .2s var(--ease);
+}
+.menu-list__row-cta:hover { color: var(--gold); border-bottom-color: var(--gold); }
+@media (max-width: 640px) {
+  .menu-list__row { grid-template-columns: 1fr auto; gap: 4px 14px; }
+  .menu-list__row-cta { grid-column: 1 / -1; justify-self: start; margin-top: 4px; }
+}
+
+/* ---- Hero refinement: split text + cleaner photo presentation ---- */
+.hero { background: var(--bg); }
+.hero__still { filter: none !important; }
+.hero__media--still { z-index: 0; }
+/* On the new light theme the photo can dominate without darkening — but
+   bias it slightly toward the right so the lede on the left stays clear */
+.hero__media--still .hero__still {
+  background-position: right center;
+}
+@media (max-width: 760px) {
+  .hero__media--still .hero__still { background-position: center; opacity: .55; }
+}
+
+/* ---- Blush band — used between gallery sections for warmth ---- */
+.blush-band { background: var(--blush); padding: clamp(60px, 8vw, 100px) 0; position: relative; z-index: 2; }
+.blush-band .display { color: var(--bone); }
+.blush-band .display em { color: var(--gold-2); }
+.blush-band .container { text-align: center; }
+.blush-band__lede { color: var(--bone); font-family: var(--serif); font-style: italic; font-size: clamp(18px, 1.8vw, 22px); max-width: 580px; margin: 18px auto 28px; line-height: 1.5; }
+
+/* ---- Insta callout box (small chip beneath gallery) ---- */
+.insta-chip {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin: 28px auto 0;
+  padding: 10px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--bone-dim);
+  text-decoration: none;
+}
+.insta-chip strong { color: var(--bone); font-weight: 600; }
+.insta-chip:hover { border-color: var(--gold); color: var(--gold); }
+.featured-looks__cta { text-align: center; }
+
