@@ -270,10 +270,21 @@ button { font-family: inherit; cursor: pointer; }
 .nav__word { font-size: 14px; }
 .nav__links { margin-left: auto; display: flex; gap: 32px; }
 .nav__links a {
+  position: relative;
   font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
   color: var(--bone-dim); font-weight: 500;
+  padding-bottom: 6px;
+  transition: color .25s var(--ease);
 }
-.nav__links a:hover { color: var(--gold); letter-spacing: 0.28em; }
+.nav__links a::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 1px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform .35s var(--ease);
+}
+.nav__links a:hover { color: var(--gold); }
+.nav__links a:hover::after { transform: scaleX(1); }
 .nav__cta { padding: 11px 20px; font-size: 11px; }
 
 .nav__burger {
@@ -1981,13 +1992,10 @@ button.masseuse-card,
   filter: brightness(.55) saturate(.85);
 }
 
-/* Active nav-link indicator */
+/* Active nav-link indicator — uses the same animated underline as the
+   hover state (set scaleX:1 so it appears, no layout shift) */
 .nav__links a.is-active { color: var(--gold); }
-.nav__links a.is-active::after {
-  content: ""; display: block;
-  width: 22px; height: 1px; background: var(--gold);
-  margin: 4px auto 0; opacity: .8;
-}
+.nav__links a.is-active::after { transform: scaleX(1); }
 
 /* Sub-page hero — sits below the global nav on /nagels, /stijlen, /over-ons */
 .subhero {
@@ -2915,3 +2923,104 @@ a, button, [role="button"] {
   .book__dates, .book__day { font-size: 14px; }
   .book__times { gap: .4rem; }
 }
+
+/* ===========================================================
+   v5 — SPLIT-HERO (editorial subpage hero with photo)
+   Used on /over-ons; reusable for any sub-page that wants a
+   magazine-style hero — image one side, copy the other.
+   =========================================================== */
+
+.split-hero { padding: clamp(120px, 14vw, 180px) 0 clamp(80px, 10vw, 140px); position: relative; z-index: 2; }
+.split-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.split-hero__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-pin);
+  overflow: hidden;
+  background: var(--surface-2);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 24px 56px -24px rgba(29,29,31,.22);
+}
+.split-hero__media::after {
+  /* Hairline frame so the photo sits on a clear cream canvas */
+  content: "";
+  position: absolute; inset: 0;
+  border: 1px solid rgba(29,29,31,.06);
+  border-radius: var(--radius-pin);
+  pointer-events: none;
+}
+.split-hero__copy .eyebrow { margin-bottom: 16px; }
+.split-hero__copy .display {
+  font-size: clamp(40px, 5.4vw, 78px);
+  margin-bottom: 24px;
+  letter-spacing: -0.018em;
+}
+.split-hero__copy .lede {
+  color: var(--bone-dim);
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.55;
+  max-width: 520px;
+  margin-bottom: 28px;
+}
+.split-hero__cta { display: inline-flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+
+/* Small stats strip under the hero copy (optional) */
+.split-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+  border-top: 1px solid var(--line);
+  padding-top: 28px;
+}
+.split-hero__stat { font-family: var(--sans); }
+.split-hero__stat strong {
+  display: block;
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(22px, 2.2vw, 30px);
+  color: var(--bone);
+  margin-bottom: 4px;
+}
+.split-hero__stat span {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 880px) {
+  .split-hero { padding: 120px 0 60px; }
+  .split-hero__grid { grid-template-columns: 1fr; gap: 32px; }
+  /* Image first on mobile so the page leads with the photo */
+  .split-hero__media { aspect-ratio: 4/5; max-height: 56vh; }
+  .split-hero__copy .display { font-size: clamp(36px, 9vw, 56px); }
+  .split-hero__copy .lede { font-size: 16px; }
+  .split-hero__stats { grid-template-columns: repeat(3, 1fr); gap: 12px; padding-top: 22px; margin-top: 28px; }
+  .split-hero__stat strong { font-size: 20px; }
+  .split-hero__stat span { font-size: 10px; letter-spacing: 0.14em; }
+}
+@media (max-width: 600px) {
+  .split-hero__media { aspect-ratio: 5/6; }
+  .split-hero__cta { width: 100%; }
+  .split-hero__cta .btn { width: 100%; }
+  .split-hero__stats { grid-template-columns: 1fr 1fr; }
+  .split-hero__stat:nth-child(3) { grid-column: 1 / -1; }
+}
+
+/* Practical-card subtle elevation upgrade — small accent corner */
+.practical-card { position: relative; }
+.practical-card::before {
+  content: "";
+  position: absolute; top: 0; left: 0;
+  width: 28px; height: 1px; background: var(--gold);
+}
+.practical-card:hover { border-color: var(--gold); box-shadow: 0 12px 32px -16px rgba(29,29,31,.14); transform: translateY(-2px); transition: all .3s var(--ease); }

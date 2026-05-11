@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Studio · The Global Beautybar</title>
-  <meta name="description" content="Over The Global Beautybar — nailstudio in Nijmegen-Dukenburg. Adres, openingstijden, contact en praktische info.">
+  <meta name="description" content="Over The Global Beautybar — kleinschalige nailstudio in Nijmegen-Dukenburg. Adres, openingstijden, contact en praktische info.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#FAF7F2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=5">
 </head>
@@ -33,21 +34,53 @@
   </div>
 </header>
 
-<section class="subhero">
-  <div class="container">
-    <div class="eyebrow"><span class="num">04</span> Studio</div>
-    <h1 class="display">Eén paar handen, <em>volle aandacht.</em></h1>
-    <p class="subhero__lede">
-      The Global Beautybar is een kleinschalige nailstudio in Nijmegen-Dukenburg.
-      We werken op afspraak, in een rustig tempo, met een vaste hand. Reserveren
-      gaat direct online — voor overleg of last-minute vragen, stuur een appje.
-    </p>
+<!-- ============ SPLIT HERO ============ -->
+<section class="split-hero">
+  <div class="split-hero__grid">
+
+    <div class="split-hero__media reveal" data-img="https://images.pexels.com/photos/34871553/pexels-photo-34871553.jpeg?auto=compress&cs=tinysrgb&w=1400"></div>
+
+    <div class="split-hero__copy reveal">
+      <div class="eyebrow"><span class="num">04</span> Studio</div>
+      <h1 class="display">Eén paar handen, <em>volle aandacht.</em></h1>
+      <p class="lede">
+        The Global Beautybar is een kleinschalige nailstudio in Nijmegen-Dukenburg.
+        We werken op afspraak — in een rustig tempo, met een vaste hand. Geen
+        wachtkamer, geen geroezemoes. Alleen jij, je behandeling, en de tijd
+        die je verdient.
+      </p>
+      <div class="split-hero__cta">
+        <button class="btn btn--accent btn--lg" data-open-book>Plan je afspraak</button>
+        <a class="btn btn--ghost btn--lg" href="https://wa.me/31634565653" target="_blank" rel="noopener">WhatsApp ons</a>
+      </div>
+
+      <div class="split-hero__stats">
+        <div class="split-hero__stat">
+          <strong>31</strong>
+          <span>Behandelingen</span>
+        </div>
+        <div class="split-hero__stat">
+          <strong>6 dagen</strong>
+          <span>Per week open</span>
+        </div>
+        <div class="split-hero__stat">
+          <strong>vanaf €10</strong>
+          <span>Prijzen transparant</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- ============ PRACTICAL — info chunks ============ -->
 <section class="section practical" id="practical">
   <div class="container">
+    <header class="section__head reveal">
+      <div class="eyebrow"><span class="num">05</span> Praktisch</div>
+      <h2 class="display">Goed om <em>te weten.</em></h2>
+    </header>
+
     <div class="practical__grid">
       <article class="practical-card reveal">
         <h3>Adres</h3>
@@ -232,6 +265,6 @@
   </div>
 </div>
 
-<script src="js/main.js?v=4"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>
